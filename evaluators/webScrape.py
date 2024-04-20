@@ -24,7 +24,7 @@ def urlToTextFile(url):
         
         extractedText = '\n'.join([p.get_text() for p in textContent])
         outputTextFileName = url.split('/')[-1].split('.')[0] + '.txt'
-        with open(outputTextFileName), 'w', encoding='utf-8') as file:
+        with open(outputTextFileName, 'w', encoding='utf-8') as file:
             file.write(extractedText)
     else:
         print("issue with requesting URL content")
