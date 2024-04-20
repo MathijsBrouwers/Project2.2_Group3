@@ -3,9 +3,9 @@ import requests
 from bs4 import BeautifulSoup
 
 
-#Takes in url 
+#Takes in url in form of "___"
 #Creates and saves a text file to the same directory as this. 
-#https://www.example.com/page.html -> example.txt
+#https://en.wikipedia.org/wiki/Web_scraping -> Web_scraping.txt
 
 
 def urlToTextFile(url):
@@ -22,10 +22,11 @@ def urlToTextFile(url):
         #h... are for the different headings
         #li is for items / bullet points
         
-        extractedText = '\n'.join([p.get_text() for p in textContent])
+        extractedText = '\n'.join([p.get_text() for p in textContent if p.get_text().strip()])
         outputTextFileName = url.split('/')[-1].split('.')[0] + '.txt'
         with open(outputTextFileName, 'w', encoding='utf-8') as file:
             file.write(extractedText)
     else:
         print("issue with requesting URL content")
 
+urlToTextFile("https://en.wikipedia.org/wiki/Web_scraping")
