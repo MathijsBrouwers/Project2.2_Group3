@@ -4,13 +4,6 @@ from abc import ABC, abstractmethod
 
 class Evaluator(ABC):
 
-    @abstractmethod
-    def minScore(self):
-        pass
-
-    @abstractmethod
-    def maxScore(self):
-        pass
 
     @abstractmethod
     def evaluate(self):
