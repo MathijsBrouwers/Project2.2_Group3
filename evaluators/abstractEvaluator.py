@@ -2,9 +2,9 @@
 
 from abc import ABC, abstractmethod
 
-class Evaluator(ABC):
+class abstractEvaluator(ABC):
 
 
     @abstractmethod
-    def evaluate(self):
+    def evaluate(self, text):
         pass
