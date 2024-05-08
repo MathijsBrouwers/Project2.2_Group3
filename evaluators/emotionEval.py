@@ -24,13 +24,13 @@ class EmotionEval(abstractEvaluator):
                                                 "or manipulation. If you do not find any such examples then say 'I found none'. Additionally please "
                                                 "explain your reasoning for choosing each example.")},
                     {"role": "user", "content": text}], 
-            stream=True,
+            stream=True, seed = 2, temperature = 0
         )
         with open("evaluators\\output.txt", "w") as file:
             for chunk in response:
                 
                 if chunk.choices[0].delta.content is not None:
-                    print(chunk.choices[0].delta.content, end="")
+                    #print(chunk.choices[0].delta.content, end="")
                     file.write(chunk.choices[0].delta.content)
 
             file.write("\n")
@@ -46,12 +46,14 @@ class EmotionEval(abstractEvaluator):
             for line in file:
                 if line.strip() == '':
                     examples += 1
+        
+        return examples
 
 
     def evaluate(self, text):
 
         self.callChat(text)
         totalSentences = self.count_sentences(text)
-        exampleSentences = self.count_examples
+        exampleSentences = self.count_examples()
         return (exampleSentences/totalSentences)
 
