@@ -13,19 +13,18 @@ def tokenize(file_path): # takes txt files and tokenizes the tweet, using some b
         with open(file_path, 'r', encoding="utf-8") as file:
             contents = file.read()
             
-           
+           #make lowercase remove links and remove # (idk if they actually had any but just in case i guess) 
             contents = contents.lower()
             contents = re.sub(r'http\S+|www\S+|https\S+', '', contents, flags=re.MULTILINE)
             contents = re.sub(r'#\w+', '', contents)
     
-            
             doc = nlp(contents)
-            
-    
+            #Perfroms lemmatization 
             cleaned_words = [
                 token.lemma_ for token in doc 
                 if not token.is_stop and not token.is_punct and not token.like_num and token.is_alpha
             ]
+        
             return cleaned_words
 
     except FileNotFoundError:

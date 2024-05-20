@@ -22,20 +22,18 @@ def tokenize(file_path): # takes txt files and tokenizes the tweet, using some b
         with open(file_path, 'r', encoding="utf-8") as file:
             contents = file.read()
             
-           
+           #make lowercase remove links and remove # (idk if they actually had any but just in case i guess) 
             contents = contents.lower()
             contents = re.sub(r'http\S+|www\S+|https\S+', '', contents, flags=re.MULTILINE)
             contents = re.sub(r'#\w+', '', contents)
     
-            
             doc = nlp(contents)
-            
-    
+            #Perfroms lemmatization 
             cleaned_words = [
                 token.lemma_ for token in doc 
                 if not token.is_stop and not token.is_punct and not token.like_num and token.is_alpha
             ]
-            print (cleaned_words)
+        
             return cleaned_words
 
     except FileNotFoundError:
@@ -49,17 +47,18 @@ def detect_positive_generalities(tokens):
     "stellar", "exceptional", "awe-inspiring", "mind-blowing", "astounding", "legendary", "godlike",] #asked gpt to create this list
     detected_generalities = []
 
-    
+    sentiment_analyzer = SentimentIntensityAnalyzer()
     for token in tokens:
         # Check if its positive generality (out of our given list )
         if token in positive_generalities:
             detected_generalities.append(token)
         
-        sentiment_analyzer = SentimentIntensityAnalyzer()
-        score = sentiment_analyzer.polarity_scores(token)
-        if score['compound'] > 0.6:  # experiemtn with changing this variable 
-            detected_generalities.append(token)
-    print(detected_generalities)
+        else:
+             #looks for other words with high sentiment rating to compliment our exisitng list
+            score = sentiment_analyzer.polarity_scores(token)
+            if score['compound'] > 0.6:  # experiemtn with changing this variable 
+                detected_generalities.append(token)
+    
     return detected_generalities
 
 def calculate_propaganda_score(tokens, detected_generalities):

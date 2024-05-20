@@ -19,19 +19,18 @@ def tokenize(file_path): # takes txt files and tokenizes the tweet, using some b
         with open(file_path, 'r', encoding="utf-8") as file:
             contents = file.read()
             
-           
+           #make lowercase remove links and remove # (idk if they actually had any but just in case i guess) 
             contents = contents.lower()
             contents = re.sub(r'http\S+|www\S+|https\S+', '', contents, flags=re.MULTILINE)
             contents = re.sub(r'#\w+', '', contents)
     
-            
             doc = nlp(contents)
-            
-    
+            #Perfroms lemmatization 
             cleaned_words = [
                 token.lemma_ for token in doc 
                 if not token.is_stop and not token.is_punct and not token.like_num and token.is_alpha
             ]
+        
             return cleaned_words
 
     except FileNotFoundError:
@@ -39,12 +38,13 @@ def tokenize(file_path): # takes txt files and tokenizes the tweet, using some b
         return None
     
 def detect_stereotypes(tokens):
+    #gpt gave me this list 
     stereotypes = ["lazy", "violent", "aggressive", "dumb", "criminal", "thug", "terrorist", "greedy", "untrustworthy", "ignorant", "savage", "uncivilized", "backward", "inferior", "exotic", "submissive", "promiscuous", "oppressed", "primitive", "barbaric", "dangerous", "unclean", "fanatical", "militant", "radical", "illegal", "alien", "parasite", "menace", "welfare queen", "trailer trash", "gang member", "thief", "druggie", "jihadist"]
     detected_stereotypes = []
 
     sentiment_analyzer = SentimentIntensityAnalyzer()  # Initialize sentiment analyzer
 
-    for i, token in enumerate(tokens):
+    for i, token in enumerate(tokens): #loops through the tokens to check if they are a known stereotype word
         if token in stereotypes:
             # Check if the stereotype word is close to entities, the idea being that if the word is found clsoe to an entity the chance of if being a steretype is higher. 
             #need to experiment with the range I look through 
@@ -54,7 +54,7 @@ def detect_stereotypes(tokens):
                     break  
 
         else:
-         
+            #checks fof words with negative sentiment the idea being that these are very negative words possibly used to steretype groups of people 
             token_sentiment = sentiment_analyzer.polarity_scores(token)
             if token_sentiment['compound'] < -0.6: #might have to adjust this value 
                 entity_found = False
