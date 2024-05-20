@@ -55,8 +55,6 @@ def detect_positive_generalities(tokens):
         if token in positive_generalities:
             detected_generalities.append(token)
         
-
-        # Use sentiment analysis for additional positive sentiment detection
         sentiment_analyzer = SentimentIntensityAnalyzer()
         score = sentiment_analyzer.polarity_scores(token)
         if score['compound'] > 0.6:  # experiemtn with changing this variable 
