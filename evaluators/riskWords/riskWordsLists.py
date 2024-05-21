@@ -70,3 +70,17 @@ emotional_language = ['hope',
                       'anger', 
                       'sadness',
                       'sad']
+
+bandwagon_language = ['unity',
+                      'everyone'
+                      'all'
+                      'popular',
+                      'trending',
+                      'majority',
+                      'hyped',
+                      'unanimous',
+                      'mainstream',
+                      'common',
+                      'widely',
+                      'viral',
+                      'standard']
