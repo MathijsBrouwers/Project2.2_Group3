@@ -1,8 +1,12 @@
 import numpy as np
 from evaluators.emotionEval import EmotionEval
+from evaluators.Positive_Generalities_and_stereotypes.stereotypes import Stereotypes
+from evaluators.Positive_Generalities_and_stereotypes.pos_gen import PosGen
 
 
 emotionEvaluator = EmotionEval()
+stereotypeEvaluator = Stereotypes()
+posgenEvaluator = PosGen()
 
 
 def read_text_file(file_path):
@@ -18,7 +22,7 @@ def compile_evaluations(text, evaluators):
     return np.array(results)
 
 def main(file_paths):
-    evaluators = [emotionEvaluator, evaluator2, evaluator3]
+    evaluators = [emotionEvaluator, stereotypeEvaluator, posgenEvaluator]
     all_results = []
 
     for file_path in file_paths:
