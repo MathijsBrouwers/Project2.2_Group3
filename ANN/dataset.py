@@ -17,7 +17,6 @@ from evaluators.riskWords.riskWordsLists import emotional_language
 from evaluators.riskWords.riskWordsLists import loaded_language
 from evaluators.riskWords.riskWordsLists import bandwagon_language
 
-# Initialize evaluators
 emotionEvaluator = EmotionEval()
 stereotypeEvaluator = Stereotypes()
 posgenEvaluator = PosGen()
@@ -142,19 +141,27 @@ def get_data_shuffled():
 
 def get_data_sets():
     X, y = get_data_shuffled()
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=5)
-    return X_train, X_test, y_train, y_test
+    # Split the data into training, validation, and testing sets
+    X_train_val, X_test, y_train_val, y_test = train_test_split(X, y, test_size=0.2, random_state=5)
+    X_train, X_validation, y_train, y_validation = train_test_split(X_train_val, y_train_val, test_size=0.25, random_state=5)
 
-def save_data(X_train, X_test, y_train, y_test, folder_path='DATASETS'):
+    return X_train, X_validation, X_test, y_train, y_validation, y_test
+
+def save_data(X_train, X_validation, X_test, y_train, y_validation, y_test, folder_path='DATASETS'):
     os.makedirs(folder_path, exist_ok=True)
 
     print(f"X_train dimensions: {X_train.shape}")
+    print(f"X_validation dimensions: {X_validation.shape}")
+    print(f"X_test dimensions: {X_test.shape}")
 
     np.save(os.path.join(folder_path, 'X_train.npy'), X_train)
+    np.save(os.path.join(folder_path, 'X_validation.npy'), X_validation)
     np.save(os.path.join(folder_path, 'X_test.npy'), X_test)
     np.save(os.path.join(folder_path, 'y_train.npy'), y_train)
+    np.save(os.path.join(folder_path, 'y_validation.npy'), y_validation)
     np.save(os.path.join(folder_path, 'y_test.npy'), y_test)
     print(f"Data saved to {folder_path}")
+
 
 def reset_start_index():
     fake_checkpoint_file = 'fake_checkpoint.txt'
@@ -168,6 +175,5 @@ def reset_start_index():
         print(f"{true_checkpoint_file} deleted.")
 
 if __name__ == "__main__":
-    X_train, X_test, y_train, y_test = get_data_sets()
-    save_data(X_train, X_test, y_train, y_test)
-    # Now `X_train`, `X_test`, `y_train`, `y_test` contain the data to use later for an ANN
+    X_train, X_validation, X_test, y_train, y_validation, y_test = get_data_sets()
+    save_data(X_train, X_validation, X_test, y_train, y_validation, y_test)

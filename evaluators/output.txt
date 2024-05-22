@@ -1,20 +1,23 @@
-1. "The long-awaited bill is emerging just as the U.S. Justice Department redoubles its efforts to use the courts to force Apple to help unlock encrypted iPhones."
-   - This sentence uses emotionally charged language by describing the bill as "long-awaited" and implying urgency with the phrase "redoubles its efforts."
+1. "Republicans seem unlikely to break with Senate Majority Leader Mitch McConnell’s hard-line stance against holding confirmation hearings or a vote on Obama’s nominee, appellate judge Merrick Garland."
+- This sentence uses emotionally charged language by describing the Republicans' stance as a "hard-line stance," which conveys a sense of rigidity and inflexibility.
 
-2. "Kevin Bankston, director of the Open Technology Institute, said in a statement it was the “most ludicrous, dangerous, technically illiterate tech policy proposal of the 21st century.”"
-   - The language in this sentence is emotionally charged with words like "ludicrous," "dangerous," and "illiterate," which convey a strong negative sentiment towards the bill.
+2. "During that period, Republicans seem unlikely to break with Senate Majority Leader Mitch McConnell’s hard-line stance against holding confirmation hearings or a vote on Obama’s nominee, appellate judge Merrick Garland."
+- The phrase "break with" in this sentence implies a sense of defiance or rebellion, adding an emotional tone to the Republicans' actions.
 
-3. "The fight over encryption has been at the center of a months long dispute between Apple and the FBI over a phone linked to one of the San Bernardino, Calif., shooters."
-   - This sentence uses emotionally charged language by describing the situation as a "fight" and mentioning a high-profile case involving a shooter, which evokes strong emotions related to security and public safety.
+3. "Voicing support for holding Garland hearings during the primary season, political experts say, could enrage conservatives already upset over the prospect of Obama making a third lifetime appointment to the nine-member court, which could give the bench a liberal tilt for the first time in decades."
+- The use of the word "enrage" in this sentence conveys a strong emotional reaction, suggesting that conservatives would be deeply angered by the prospect of Obama's nominee.
 
-4. "The proposal from Burr and Feinstein, the top Republican and Democrat on the Senate Intelligence Committee respectively, is expected to face a steep climb in a gridlocked U.S. Congress during an election year."
-   - The language in this sentence is emotionally charged with phrases like "steep climb" and "gridlocked U.S. Congress," which suggest significant challenges and obstacles for the bill's passage.
+4. "That anger could bolster primary candidates challenging incumbent Republicans from the right or encourage new challengers to come forward."
+- The word "anger" in this sentence evokes a strong emotional response, indicating the potential impact of conservative dissatisfaction on the political landscape.
 
-5. "For the first time in America, companies that want to protect their customers with stronger security will not have that choice."
-   - This sentence uses emotionally charged language by emphasizing the idea of companies being stripped of their ability to protect customers, invoking a sense of loss and helplessness.
+5. "The real obstacle is getting over the primaries."
+- The phrase "real obstacle" in this sentence adds an emotional weight to the challenges faced by the Republicans in the Senate, implying a significant barrier to overcome.
 
-6. "They will be required by federal law per this statute to decide how to weaken their products to make Americans less safe."
-   - The language in this sentence is emotionally charged with words like "weaken" and "less safe," which convey a negative impact on the safety and security of Americans.
+6. "The danger of straying from McConnell’s blockade was illustrated when Kansas Republican Jerry Moran last month backed hearings on Garland but reversed course after rumblings of a right-wing challenge materializing in Moran’s Aug. 2 primary."
+- The term "danger" in this sentence conveys a sense of risk or threat, emphasizing the potential consequences of going against McConnell's stance.
 
-7. "Matt Blaze, a professor and computer security expert at the University of Pennsylvania, said on Twitter that the bill was worse than a failed effort by President Bill Clinton’s administration in the 1990s to require a special computer chip in phones to give the U.S. government a way to monitor encrypted conversations."
-   - This sentence uses emotionally charged language by comparing the bill to a "failed effort" from the past and implying that it is even worse, suggesting a strong negative judgment on the current proposal.
+7. "Some Democrats think McConnell’s gambit gives them a campaign issue for the elections."
+- The word "gambit" in this sentence carries a negative connotation, suggesting a strategic move by McConnell that is viewed critically by Democrats.
+
+8. "If there was any question about obstruction in the United States Senate, what’s happening with the vacancy on the Supreme Court is Exhibit A of Republican obstructionism."
+- The phrase "Exhibit A of Republican obstructionism" in this sentence is emotionally charged, implying a clear example of obstruction by the Republicans in the Senate.
