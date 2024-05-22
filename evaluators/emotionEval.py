@@ -48,9 +48,17 @@ class EmotionEval(abstractEvaluator):
                     examples += 1
         
         return examples
+    
+    def read_text_file(self, file_path):
+        with open(file_path, 'r') as file:
+            content = file.read()
+        return content
 
 
-    def evaluate(self, text):
+
+    def evaluate(self, file):
+
+        text = self.read_text_file(file)
 
         self.callChat(text)
         totalSentences = self.count_sentences(text)

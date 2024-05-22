@@ -1,1 +1,2 @@
-# Main file
+import sys
+print(sys.path)

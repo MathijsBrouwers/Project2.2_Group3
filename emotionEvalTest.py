@@ -9,5 +9,5 @@ with open("evaluators/TestArticle.txt", "r") as file:
     test_text = file.read()
 
 # Call evaluate method
-result = evaluator.evaluate(test_text)
+result = evaluator.evaluate("evaluators/TestArticle.txt")
 print(result)
