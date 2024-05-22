@@ -1,10 +1,20 @@
-1. "Trump undercut his adversaries with a searing attack, claiming that local officials seemed to accept the established private clubs in town that had excluded Jews and blacks while imposing tough rules on his inclusive one."
-- This sentence contains emotionally charged language with the use of the word "searing attack" to describe Trump's response to the town council's restrictions.
+1. "The long-awaited bill is emerging just as the U.S. Justice Department redoubles its efforts to use the courts to force Apple to help unlock encrypted iPhones."
+   - This sentence uses emotionally charged language by describing the bill as "long-awaited" and implying urgency with the phrase "redoubles its efforts."
 
-2. "The move infuriated council members, who said it was a distraction from their concerns that Trump s club would spoil a quiet street."
-- The word "infuriated" conveys strong emotions and indicates the intensity of the council members' reaction to Trump's actions.
+2. "Kevin Bankston, director of the Open Technology Institute, said in a statement it was the “most ludicrous, dangerous, technically illiterate tech policy proposal of the 21st century.”"
+   - The language in this sentence is emotionally charged with words like "ludicrous," "dangerous," and "illiterate," which convey a strong negative sentiment towards the bill.
 
-3. "I think it s the best thing Trump did in his whole life," said Laurence Leamer, the author of the book Madness Under the Royal Palms: Love and Death Behind the Gates of Palm Beach. "He opened up this island. He also had Jews and gays and African Americans he even had the first gay wedding."
-- The phrase "the best thing Trump did in his whole life" is emotionally charged and reflects a strong positive sentiment towards Trump's actions in Palm Beach.
+3. "The fight over encryption has been at the center of a months long dispute between Apple and the FBI over a phone linked to one of the San Bernardino, Calif., shooters."
+   - This sentence uses emotionally charged language by describing the situation as a "fight" and mentioning a high-profile case involving a shooter, which evokes strong emotions related to security and public safety.
 
-4. "Trump got fan mail as he said in a blizzard of interviews: 'No American should have to get a permit to fly the
+4. "The proposal from Burr and Feinstein, the top Republican and Democrat on the Senate Intelligence Committee respectively, is expected to face a steep climb in a gridlocked U.S. Congress during an election year."
+   - The language in this sentence is emotionally charged with phrases like "steep climb" and "gridlocked U.S. Congress," which suggest significant challenges and obstacles for the bill's passage.
+
+5. "For the first time in America, companies that want to protect their customers with stronger security will not have that choice."
+   - This sentence uses emotionally charged language by emphasizing the idea of companies being stripped of their ability to protect customers, invoking a sense of loss and helplessness.
+
+6. "They will be required by federal law per this statute to decide how to weaken their products to make Americans less safe."
+   - The language in this sentence is emotionally charged with words like "weaken" and "less safe," which convey a negative impact on the safety and security of Americans.
+
+7. "Matt Blaze, a professor and computer security expert at the University of Pennsylvania, said on Twitter that the bill was worse than a failed effort by President Bill Clinton’s administration in the 1990s to require a special computer chip in phones to give the U.S. government a way to monitor encrypted conversations."
+   - This sentence uses emotionally charged language by comparing the bill to a "failed effort" from the past and implying that it is even worse, suggesting a strong negative judgment on the current proposal.
