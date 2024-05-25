@@ -7,7 +7,6 @@ client = OpenAI(api_key=api_key)
 
 
 class EmotionEval(abstractEvaluator): 
-    """Class representing a person"""
 
     def callChat(self, text):
 

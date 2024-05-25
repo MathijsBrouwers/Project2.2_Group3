@@ -175,6 +175,6 @@ def reset_start_index():
         print(f"{true_checkpoint_file} deleted.")
 
 if __name__ == "__main__":
-    batch_size = 90
+    batch_size = 100
     X_train, X_validation, X_test, y_train, y_validation, y_test = get_data_sets(batch_size)
     save_data(X_train, X_validation, X_test, y_train, y_validation, y_test)
