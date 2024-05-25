@@ -1,1 +1,0 @@
-Fatal error : Out of memory (allocated 18087936) (tried to allocate 552480 bytes) in /home/pakalert/public_html/wp-settings.php on line 255

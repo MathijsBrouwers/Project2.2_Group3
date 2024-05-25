@@ -1,3 +1,0 @@
-Non-GAAP = SEC* FRAUD
-Non-GAAP = SEC* SWINDLE
-*SEC (US Swindlers Excuse Commissars)
