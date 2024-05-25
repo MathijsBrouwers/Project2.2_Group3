@@ -42,7 +42,7 @@ def compile_evaluations(file_path, evaluators):
 
     return np.array(results)
 
-def process_folder(folder_path, evaluators, label, start_index=0, batch_size=5):
+def process_folder(folder_path, evaluators, label, batch_size, start_index=0):
     all_results = []
     labels = []
     folder_path = Path(folder_path)
@@ -75,7 +75,7 @@ def save_combined_data(X, y, data_file, labels_file):
     np.save(data_file, np.array(X))
     np.save(labels_file, np.array(y))
 
-def retrieve_data():
+def retrieve_data(batch_size):
     evaluators = [emotionEvaluator, stereotypeEvaluator, posgenEvaluator]
 
     print("retrieving data")
@@ -107,9 +107,9 @@ def retrieve_data():
     true_results, true_labels = load_existing_data(true_data_file, true_labels_file)
 
     # Process fake tweets folder
-    new_fake_results, new_fake_labels, fake_last_index = process_folder(fake_tweets_folder, evaluators, 1, fake_start_index)
+    new_fake_results, new_fake_labels, fake_last_index = process_folder(fake_tweets_folder, evaluators, 1, batch_size, fake_start_index)
     # Process true tweets folder
-    new_true_results, new_true_labels, true_last_index = process_folder(true_tweets_folder, evaluators, 0, true_start_index)
+    new_true_results, new_true_labels, true_last_index = process_folder(true_tweets_folder, evaluators, 0, batch_size, true_start_index)
 
     # Append new data to existing data
     fake_results.extend(new_fake_results)
@@ -132,15 +132,15 @@ def retrieve_data():
 
     return all_results_array, y
 
-def get_data_shuffled():
-    X, y = retrieve_data()
+def get_data_shuffled(batch_size):
+    X, y = retrieve_data(batch_size)
     data = list(zip(X, y))
     np.random.shuffle(data)
     X_shuffled, y_shuffled = zip(*data)
     return np.array(X_shuffled), np.array(y_shuffled)
 
-def get_data_sets():
-    X, y = get_data_shuffled()
+def get_data_sets(batch_size):
+    X, y = get_data_shuffled(batch_size)
     # Split the data into training, validation, and testing sets
     X_train_val, X_test, y_train_val, y_test = train_test_split(X, y, test_size=0.2, random_state=5)
     X_train, X_validation, y_train, y_validation = train_test_split(X_train_val, y_train_val, test_size=0.25, random_state=5)
@@ -175,5 +175,6 @@ def reset_start_index():
         print(f"{true_checkpoint_file} deleted.")
 
 if __name__ == "__main__":
-    X_train, X_validation, X_test, y_train, y_validation, y_test = get_data_sets()
+    batch_size = 90
+    X_train, X_validation, X_test, y_train, y_validation, y_test = get_data_sets(batch_size)
     save_data(X_train, X_validation, X_test, y_train, y_validation, y_test)

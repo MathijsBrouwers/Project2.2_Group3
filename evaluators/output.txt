@@ -1,23 +1,16 @@
-1. "Republicans seem unlikely to break with Senate Majority Leader Mitch McConnell’s hard-line stance against holding confirmation hearings or a vote on Obama’s nominee, appellate judge Merrick Garland."
-- This sentence uses emotionally charged language by describing the Republicans' stance as a "hard-line stance," which conveys a sense of rigidity and inflexibility.
+1. "Cruz would boost border security by completing 700 miles (1,130 km) of priority fencing along the U.S.-Mexico border, tripling the number of Border Patrol agents and adding aircraft for border surveillance."
+   - This sentence contains emotionally charged language in the phrase "boost border security," which implies a sense of urgency and importance in addressing the issue.
 
-2. "During that period, Republicans seem unlikely to break with Senate Majority Leader Mitch McConnell’s hard-line stance against holding confirmation hearings or a vote on Obama’s nominee, appellate judge Merrick Garland."
-- The phrase "break with" in this sentence implies a sense of defiance or rebellion, adding an emotional tone to the Republicans' actions.
+2. "He would withhold federal funding from “sanctuary cities” that do not prosecute undocumented immigrants."
+   - The term "sanctuary cities" carries a negative connotation and can evoke strong emotions in individuals who may have strong opinions on immigration policies.
 
-3. "Voicing support for holding Garland hearings during the primary season, political experts say, could enrage conservatives already upset over the prospect of Obama making a third lifetime appointment to the nine-member court, which could give the bench a liberal tilt for the first time in decades."
-- The use of the word "enrage" in this sentence conveys a strong emotional reaction, suggesting that conservatives would be deeply angered by the prospect of Obama's nominee.
+3. "Cruz opposes the Export-Import Bank, which finances U.S. exports."
+   - The word "opposes" suggests a strong stance against the Export-Import Bank, indicating a clear and unwavering position on the issue.
 
-4. "That anger could bolster primary candidates challenging incumbent Republicans from the right or encourage new challengers to come forward."
-- The word "anger" in this sentence evokes a strong emotional response, indicating the potential impact of conservative dissatisfaction on the political landscape.
+4. "He would abolish the Internal Revenue Service."
+   - The word "abolish" is emotionally charged as it implies a drastic and radical action, which can evoke strong reactions from individuals who may have varying opinions on taxation and government agencies.
 
-5. "The real obstacle is getting over the primaries."
-- The phrase "real obstacle" in this sentence adds an emotional weight to the challenges faced by the Republicans in the Senate, implying a significant barrier to overcome.
+5. "He has said he would 'carpet bomb' the Islamic State militant group."
+   - The phrase "carpet bomb" is emotionally charged as it conveys a sense of aggression and intensity in dealing with the Islamic State militant group, potentially stirring strong emotions in individuals who have concerns about military strategies and tactics. 
 
-6. "The danger of straying from McConnell’s blockade was illustrated when Kansas Republican Jerry Moran last month backed hearings on Garland but reversed course after rumblings of a right-wing challenge materializing in Moran’s Aug. 2 primary."
-- The term "danger" in this sentence conveys a sense of risk or threat, emphasizing the potential consequences of going against McConnell's stance.
-
-7. "Some Democrats think McConnell’s gambit gives them a campaign issue for the elections."
-- The word "gambit" in this sentence carries a negative connotation, suggesting a strategic move by McConnell that is viewed critically by Democrats.
-
-8. "If there was any question about obstruction in the United States Senate, what’s happening with the vacancy on the Supreme Court is Exhibit A of Republican obstructionism."
-- The phrase "Exhibit A of Republican obstructionism" in this sentence is emotionally charged, implying a clear example of obstruction by the Republicans in the Senate.
+I found none.
