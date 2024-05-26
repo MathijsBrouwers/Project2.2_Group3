@@ -21,8 +21,8 @@ y_validation = np.load('DATASETS/y_validation.npy')
 
 def create_model():
     model = Sequential()
-    model.add(Dense(64, activation='relu', input_dim=6))
-    model.add(Dense(1, activation='sigmoid'))
+    model.add(Dense(64, activation='relu', input_dim=6, name="HiddenLayer"))
+    model.add(Dense(1, activation='sigmoid', name = "OutputLayer"))
     model.compile(optimizer=Adam(lr=0.001), loss='binary_crossentropy', metrics=['accuracy'])
     return model
 
