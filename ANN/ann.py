@@ -1,4 +1,7 @@
-
+# ----------------------------------------------------------------------
+# This file is for the creation and training of the artificial neural network. It is trained to be a binary
+# classifier based on the feature vectors processed from our data.
+# ----------------------------------------------------------------------
 
 import numpy as np
 from keras.layers import Dense
@@ -13,7 +16,6 @@ X_validation = np.load('DATASETS/X_validation.npy')
 y_train = np.load('DATASETS/y_train.npy')
 y_test = np.load('DATASETS/y_test.npy')
 y_validation = np.load('DATASETS/y_validation.npy')
-
 
 
 

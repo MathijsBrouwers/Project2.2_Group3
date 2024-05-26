@@ -1,3 +1,15 @@
+# ----------------------------------------------------------------------
+# This file is meant to be run by executing the command: "python -m ANN.dataset" within the terminal. It's purpose is to process
+# batches of the text data and convert them into feature vectors. This process works in batches and each time it is run the previously processed
+# data will be loaded, expanded upon and saved again.
+#
+# The amount of files processed in the batch can be altered in the main method where the parameter batch_size determines how many files will be
+# processed from each group. Thus it should be noted that the total number of processed files will be double that of the input batch size.
+#
+# WARNING: This file does not function as intended when using automatic run buttons such as those present in the top right corner of VSCode. In 
+# order to run it properly consult the top of this comment
+# ----------------------------------------------------------------------
+
 from pathlib import Path
 import os
 import numpy as np
@@ -17,16 +29,15 @@ from evaluators.riskWords.riskWordsLists import emotional_language
 from evaluators.riskWords.riskWordsLists import loaded_language
 from evaluators.riskWords.riskWordsLists import bandwagon_language
 
+# Here is where instances of all our evaluators are created
 emotionEvaluator = EmotionEval()
 stereotypeEvaluator = Stereotypes()
 posgenEvaluator = PosGen()
 riskWords = RiskWords()
 
-def read_text_file(file_path):
-    with open(file_path, 'r') as file:
-        content = file.read()
-    return content
-
+# This method takes in a specific file path and list of evaluators and uses them
+# to give the text a score for each evaluator and then compile those scores into a numpy
+# vector to be returned.
 def compile_evaluations(file_path, evaluators):
     print("begin compilation")
     results = []
@@ -42,6 +53,9 @@ def compile_evaluations(file_path, evaluators):
 
     return np.array(results)
 
+# This method takes in a folder, evaluators, label batch size and start index in order
+# to attempt to begin processing data for a specific folder at the previosuly left off point. 
+# If no data had been processed thus far it will start from the beginning.
 def process_folder(folder_path, evaluators, label, batch_size, start_index=0):
     all_results = []
     labels = []
@@ -64,6 +78,8 @@ def process_folder(folder_path, evaluators, label, batch_size, start_index=0):
 
     return all_results, labels, file_num
 
+# This method is meant to load all the previosuly processed data so that newly processed data can be
+# added to what was processed before.
 def load_existing_data(data_file, labels_file):
     if os.path.exists(data_file) and os.path.exists(labels_file):
         X = np.load(data_file, allow_pickle=True)
@@ -71,10 +87,12 @@ def load_existing_data(data_file, labels_file):
         return list(X), list(y)
     return [], []
 
+# This method saves the feature vectors and the label vectors for the processed data
 def save_combined_data(X, y, data_file, labels_file):
     np.save(data_file, np.array(X))
     np.save(labels_file, np.array(y))
 
+# This method 
 def retrieve_data(batch_size):
     evaluators = [emotionEvaluator, stereotypeEvaluator, posgenEvaluator]
 
@@ -83,7 +101,7 @@ def retrieve_data(batch_size):
     fake_tweets_folder = 'DATA/Fake_tweets txt files'
     true_tweets_folder = 'DATA/True_tweets txt files'
 
-    # Load the last processed index from the checkpoint file
+    # Load the index of the last processed files
     fake_checkpoint_file = 'fake_checkpoint.txt'
     true_checkpoint_file = 'true_checkpoint.txt'
 
@@ -97,7 +115,7 @@ def retrieve_data(batch_size):
         with open(true_checkpoint_file, 'r') as f:
             true_start_index = int(f.read())
 
-    # Load existing data
+    # Load prior data
     fake_data_file = 'DATA/fake_results.npy'
     fake_labels_file = 'DATA/fake_labels.npy'
     true_data_file = 'DATA/true_results.npy'
@@ -106,18 +124,18 @@ def retrieve_data(batch_size):
     fake_results, fake_labels = load_existing_data(fake_data_file, fake_labels_file)
     true_results, true_labels = load_existing_data(true_data_file, true_labels_file)
 
-    # Process fake tweets folder
+    # Process propaganda folder
     new_fake_results, new_fake_labels, fake_last_index = process_folder(fake_tweets_folder, evaluators, 1, batch_size, fake_start_index)
-    # Process true tweets folder
+    # Process non propaganda
     new_true_results, new_true_labels, true_last_index = process_folder(true_tweets_folder, evaluators, 0, batch_size, true_start_index)
 
-    # Append new data to existing data
+    # Merge newly processed data with old data
     fake_results.extend(new_fake_results)
     fake_labels.extend(new_fake_labels)
     true_results.extend(new_true_results)
     true_labels.extend(new_true_labels)
 
-    # Save the current index to the checkpoint file for each folder
+    # Save new index for future checkpoint
     with open(fake_checkpoint_file, 'w') as f:
         f.write(str(fake_last_index))
     with open(true_checkpoint_file, 'w') as f:
@@ -132,6 +150,8 @@ def retrieve_data(batch_size):
 
     return all_results_array, y
 
+# This method retrives dataset combining both labels of processed data and then shuffling them to
+# change the order or their presentation.
 def get_data_shuffled(batch_size):
     X, y = retrieve_data(batch_size)
     data = list(zip(X, y))
@@ -139,14 +159,16 @@ def get_data_shuffled(batch_size):
     X_shuffled, y_shuffled = zip(*data)
     return np.array(X_shuffled), np.array(y_shuffled)
 
+# This method splits the shuffled data into training, validation and test sets
 def get_data_sets(batch_size):
     X, y = get_data_shuffled(batch_size)
-    # Split the data into training, validation, and testing sets
     X_train_val, X_test, y_train_val, y_test = train_test_split(X, y, test_size=0.2, random_state=5)
     X_train, X_validation, y_train, y_validation = train_test_split(X_train_val, y_train_val, test_size=0.25, random_state=5)
 
     return X_train, X_validation, X_test, y_train, y_validation, y_test
 
+# This method saves the complete split datasets for training, valdiationa and testing and saves them as their own files
+# for later usage.
 def save_data(X_train, X_validation, X_test, y_train, y_validation, y_test, folder_path='DATASETS'):
     os.makedirs(folder_path, exist_ok=True)
 
@@ -162,7 +184,8 @@ def save_data(X_train, X_validation, X_test, y_train, y_validation, y_test, fold
     np.save(os.path.join(folder_path, 'y_test.npy'), y_test)
     print(f"Data saved to {folder_path}")
 
-
+# This method just deletes the saved checkpoints for the data folders. Really only used if
+# data processing must be done from the begining.
 def reset_start_index():
     fake_checkpoint_file = 'fake_checkpoint.txt'
     true_checkpoint_file = 'true_checkpoint.txt'
@@ -174,6 +197,8 @@ def reset_start_index():
         os.remove(true_checkpoint_file)
         print(f"{true_checkpoint_file} deleted.")
 
+# Main method of the file. Change the batch_size in order to alter how
+# may files are processed in the batch.
 if __name__ == "__main__":
     batch_size = 100
     X_train, X_validation, X_test, y_train, y_validation, y_test = get_data_sets(batch_size)
