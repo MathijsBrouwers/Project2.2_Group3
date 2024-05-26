@@ -5,7 +5,7 @@
 
 import numpy as np
 from keras.layers import Dense
-from keras.models import Sequential
+from keras.models import Sequential, load_model
 from keras.optimizers import Adam
 
 
@@ -19,19 +19,25 @@ y_validation = np.load('DATASETS/y_validation.npy')
 
 
 
-class Network(Sequential):
-    def __init__(self):
-        super(Network, self).__init__()
-        self.add(Dense(64, activation='relu', input_dim=6))
-        self.add(Dense(1, activation='sigmoid'))
-        self.compile(optimizer=Adam(lr=0.001), loss='binary_crossentropy', metrics=['accuracy'])
+def create_model():
+    model = Sequential()
+    model.add(Dense(64, activation='relu', input_dim=6))
+    model.add(Dense(1, activation='sigmoid'))
+    model.compile(optimizer=Adam(lr=0.001), loss='binary_crossentropy', metrics=['accuracy'])
+    return model
 
 
-model = Network()
+model = create_model()
 
 model.fit(X_train, y_train, epochs=5, batch_size=4, validation_data=(X_validation, y_validation))
 
-model.save('ANN\\prop_model.h5')
 
-loss, accuracy = model.evaluate(X_test, y_test)
-print(f'Test Loss: {loss}, Test Accuracy: {accuracy}')
+model.summary()
+
+model.save('ANN/prop_model.h5')
+
+prop_model = load_model('ANN\\prop_model.h5')
+prop_model.summary()
+
+#loss, accuracy = model.evaluate(X_test, y_test)
+#print(f'Test Loss: {loss}, Test Accuracy: {accuracy}')
