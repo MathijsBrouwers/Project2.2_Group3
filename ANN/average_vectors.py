@@ -1,3 +1,9 @@
+# ----------------------------------------------------------------------
+# This file is used to calculate the avergae feature vector for each classification as well as the difference between them. This
+# is for the purposes of comparing averged features and attempting to predict which features will be most valuable to the classification.
+# To use just run the file.
+# ----------------------------------------------------------------------
+
 import numpy as np
 
 X_train = np.load('DATASETS/X_train.npy')

@@ -1,3 +1,8 @@
+# ----------------------------------------------------------------------
+# This file simply checks the precision and recall of the modified artificial neural network classifier. To use 
+# just run the file.
+# ----------------------------------------------------------------------
+
 import numpy as np
 from keras.models import Sequential, load_model
 

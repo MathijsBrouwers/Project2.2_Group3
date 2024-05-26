@@ -1,6 +1,6 @@
 # ----------------------------------------------------------------------
 # This file is for the creation and training of the artificial neural network. It is trained to be a binary
-# classifier based on the feature vectors processed from our data.
+# classifier based on the feature vectors processed from our data. Used by running the file
 # ----------------------------------------------------------------------
 
 import numpy as np
