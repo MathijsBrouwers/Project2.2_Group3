@@ -1,17 +1,14 @@
-
-from keras.models import load_model
 import numpy as np
-from sklearn.metrics import precision_score, recall_score
+from keras.models import Sequential, load_model
 
-X_test = np.load('DATASETS/X_test.npy')
-y_test = np.load('DATASETS/y_test.npy')
+X_train = np.load('DATASETS/X_train.npy')
 
+model = load_model('ANN/prop_model.h5')
 
-prop_model = load_model('ANN\\prop_model.h5')
+first_dense_weights = model.layers[0].get_weights()[0]
 
-for layer in prop_model.layers:
-    weights = layer.get_weights()  # List of numpy arrays
-    print(f"Layer: {layer.name}")
-    print(f"Weights: {weights[0]}")  # Weight matrix
-    if len(weights) > 1:
-        print(f"Biases: {weights[1]}")  # Bias vector
+input_nodes_mean_weights = np.mean(first_dense_weights, axis=1)
+
+print("Average weights for each input node to the first dense layer:")
+for i, mean_weight in enumerate(input_nodes_mean_weights):
+    print(f"Input node {i+1}: {mean_weight}")

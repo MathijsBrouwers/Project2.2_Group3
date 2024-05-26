@@ -17,5 +17,8 @@ X_class_1 = X_all[y_all == 1]
 avg_vector_class_0 = np.mean(X_class_0, axis=0)
 avg_vector_class_1 = np.mean(X_class_1, axis=0)
 
+difference_vector = avg_vector_class_0 - avg_vector_class_1
+
 print("Average vector for class 0:", avg_vector_class_0)
 print("Average vector for class 1:", avg_vector_class_1)
+print("Difference vector:", difference_vector)
