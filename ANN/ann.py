@@ -31,5 +31,7 @@ model = Network()
 
 model.fit(X_train, y_train, epochs=5, batch_size=4, validation_data=(X_validation, y_validation))
 
+model.save('ANN\\prop_model.h5')
+
 loss, accuracy = model.evaluate(X_test, y_test)
 print(f'Test Loss: {loss}, Test Accuracy: {accuracy}')
