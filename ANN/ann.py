@@ -8,7 +8,7 @@ from keras.layers import Dense
 from keras.models import Sequential, load_model
 from keras.optimizers import Adam
 
-#test oliver 
+#test oliver 2
 
 
 X_train = np.load('DATASETS/X_train.npy')
