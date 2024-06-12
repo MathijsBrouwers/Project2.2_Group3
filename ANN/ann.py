@@ -25,7 +25,7 @@ def create_model():
     model = Sequential()
     model.add(Dense(64, activation='relu', input_dim=6, name="HiddenLayer"))
     model.add(Dense(1, activation='sigmoid', name = "OutputLayer"))
-    model.compile(optimizer=Adam(lr=0.001), loss='binary_crossentropy', metrics=['accuracy'])
+    model.compile(optimizer=Adam(learning_rate=0.001), loss='binary_crossentropy', metrics=['accuracy'])
     return model
 
 
@@ -38,7 +38,7 @@ model.summary()
 
 model.save('ANN/prop_model.h5')
 
-prop_model = load_model('ANN\\prop_model.h5')
+prop_model = load_model('ANN/prop_model.h5')
 prop_model.summary()
 
 #loss, accuracy = model.evaluate(X_test, y_test)
