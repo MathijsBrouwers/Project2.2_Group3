@@ -200,6 +200,6 @@ def reset_start_index():
 # Main method of the file. Change the batch_size in order to alter how
 # may files are processed in the batch.
 if __name__ == "__main__":
-    batch_size = 100
+    batch_size = 400
     X_train, X_validation, X_test, y_train, y_validation, y_test = get_data_sets(batch_size)
     save_data(X_train, X_validation, X_test, y_train, y_validation, y_test)
