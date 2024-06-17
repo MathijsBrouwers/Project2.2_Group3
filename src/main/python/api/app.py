@@ -12,6 +12,7 @@ def receive_data():
 if __name__ == '__main__':
     app.run(debug=True)
 
+#python "/Users/Oliver1/Library/CloudStorage/OneDrive-Personal/Data Science and AI BSc/Project 2-2/te/Project2.2_Group3/src/main/python/api/app.py"
 
 
 
