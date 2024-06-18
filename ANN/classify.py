@@ -45,6 +45,12 @@ def process_text(text, evaluators):
 
     np.save("feature_vector.npy", feature_vector)
     
+def classifyText(text):
+    
+    evaluators = [emotionEvaluator, stereotypeEvaluator, posgenEvaluator]
+    
+    process_text(text, evaluators)
+    classify()
 
 
 if __name__ == "__main__":
