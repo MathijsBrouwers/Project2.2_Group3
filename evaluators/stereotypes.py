@@ -16,7 +16,7 @@ api_key = ""
 client = OpenAI(api_key=api_key)
 
 # This class implements the abstractEvaluator class
-class EmotionEval(abstractEvaluator): 
+class stereotypes(abstractEvaluator): 
 
 
      # This method makes the actual call to gpt-3.5-turbo. It contains its instruction and will also feeed it a text passage to work with.

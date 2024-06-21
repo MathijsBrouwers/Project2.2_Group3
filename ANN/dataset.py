@@ -16,8 +16,8 @@ import numpy as np
 import glob
 from sklearn.model_selection import train_test_split
 
-from evaluators.emotionEval import EmotionEval
-from evaluators.Positive_Generalities_and_stereotypes.stereotypes import Stereotypes
+from evaluators.emotionEval import emotionEval
+from evaluators.stereotypes import stereotypes
 from evaluators.Positive_Generalities_and_stereotypes.pos_gen import PosGen
 from evaluators.riskWords.riskWords import RiskWords
 
@@ -30,8 +30,8 @@ from evaluators.riskWords.riskWordsLists import loaded_language
 from evaluators.riskWords.riskWordsLists import bandwagon_language
 
 # Here is where instances of all our evaluators are created
-emotionEvaluator = EmotionEval()
-stereotypeEvaluator = Stereotypes()
+emotionEvaluator = emotionEval()
+stereotypeEvaluator = stereotypes()
 posgenEvaluator = PosGen()
 riskWords = RiskWords()
 
