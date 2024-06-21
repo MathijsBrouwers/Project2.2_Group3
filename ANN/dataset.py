@@ -16,8 +16,8 @@ import numpy as np
 import glob
 from sklearn.model_selection import train_test_split
 
-from evaluators.emotionEval import emotionEval
-from evaluators.stereotypes import stereotypes
+from evaluators.emotionEval import EmotionEval
+from evaluators.stereotypes import Stereotypes
 from evaluators.Positive_Generalities_and_stereotypes.pos_gen import PosGen
 from evaluators.riskWords.riskWords import RiskWords
 
@@ -30,8 +30,8 @@ from evaluators.riskWords.riskWordsLists import loaded_language
 from evaluators.riskWords.riskWordsLists import bandwagon_language
 
 # Here is where instances of all our evaluators are created
-emotionEvaluator = emotionEval()
-stereotypeEvaluator = stereotypes()
+emotionEvaluator = EmotionEval()
+stereotypeEvaluator = Stereotypes()
 posgenEvaluator = PosGen()
 riskWords = RiskWords()
 
@@ -102,8 +102,8 @@ def retrieve_data(batch_size):
     true_tweets_folder = 'DATA/True_tweets txt files'
 
     # Load the index of the last processed files
-    fake_checkpoint_file = 'fake_checkpoint.txt'
-    true_checkpoint_file = 'true_checkpoint.txt'
+    fake_checkpoint_file = 'fake_checkpoint_new.txt'
+    true_checkpoint_file = 'true_checkpoint_new.txt'
 
     fake_start_index = 0
     true_start_index = 0
@@ -116,10 +116,10 @@ def retrieve_data(batch_size):
             true_start_index = int(f.read())
 
     # Load prior data
-    fake_data_file = 'DATA/fake_results.npy'
-    fake_labels_file = 'DATA/fake_labels.npy'
-    true_data_file = 'DATA/true_results.npy'
-    true_labels_file = 'DATA/true_labels.npy'
+    fake_data_file = 'DATA/fake_results_new.npy'
+    fake_labels_file = 'DATA/fake_labels_new.npy'
+    true_data_file = 'DATA/true_results_new.npy'
+    true_labels_file = 'DATA/true_labels_new.npy'
 
     fake_results, fake_labels = load_existing_data(fake_data_file, fake_labels_file)
     true_results, true_labels = load_existing_data(true_data_file, true_labels_file)
@@ -187,8 +187,8 @@ def save_data(X_train, X_validation, X_test, y_train, y_validation, y_test, fold
 # This method just deletes the saved checkpoints for the data folders. Really only used if
 # data processing must be done from the begining.
 def reset_start_index():
-    fake_checkpoint_file = 'fake_checkpoint.txt'
-    true_checkpoint_file = 'true_checkpoint.txt'
+    fake_checkpoint_file = 'fake_checkpoint_new.txt'
+    true_checkpoint_file = 'true_checkpoint_new.txt'
     
     if os.path.exists(fake_checkpoint_file):
         os.remove(fake_checkpoint_file)
@@ -200,6 +200,6 @@ def reset_start_index():
 # Main method of the file. Change the batch_size in order to alter how
 # may files are processed in the batch.
 if __name__ == "__main__":
-    batch_size = 400
+    batch_size = 50
     X_train, X_validation, X_test, y_train, y_validation, y_test = get_data_sets(batch_size)
     save_data(X_train, X_validation, X_test, y_train, y_validation, y_test)
