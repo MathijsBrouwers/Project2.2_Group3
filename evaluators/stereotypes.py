@@ -22,7 +22,7 @@ class Stereotypes(abstractEvaluator):
      # This method makes the actual call to gpt-3.5-turbo. It contains its instruction and will also feeed it a text passage to work with.
     # Additionally this method writes gpt's output into the output.txt file for later usage
     def callChat(self, text):
-        article = open("evaluators\\TestArticle.txt","r").read()
+        article = open("evaluators\\TestArticle.txt","r", encoding='utf-8').read()
         if text is None:
             text = article
 
@@ -41,7 +41,7 @@ class Stereotypes(abstractEvaluator):
             stream=True, seed = 2, temperature = 0
         )
         
-        with open("evaluators\\outputStereo.txt", "w") as file:
+        with open("evaluators\\outputStereo.txt", "w", encoding='utf-8') as file:
            
             
             for chunk in response:
@@ -61,7 +61,7 @@ class Stereotypes(abstractEvaluator):
     # This method counts the examples provided by gpt by reading its output text from the output.txt file
     def count_examples(self):
         examples = 0
-        with open("evaluators\\outputStereo.txt", 'r') as file:
+        with open("evaluators\\outputStereo.txt", 'r', encoding='utf-8') as file:
             for line in file:
                 if line.strip() == '':
                     examples += 1
