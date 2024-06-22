@@ -41,7 +41,7 @@ class Stereotypes(abstractEvaluator):
             stream=True, seed = 2, temperature = 0
         )
         
-        with open("evaluators\\output.txt", "w") as file:
+        with open("evaluators\\outputStereo.txt", "w") as file:
            
             
             for chunk in response:
