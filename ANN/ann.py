@@ -19,6 +19,21 @@ y_train = np.load('DATASETS/y_train.npy')
 y_test = np.load('DATASETS/y_test.npy')
 y_validation = np.load('DATASETS/y_validation.npy')
 
+X_train_old = np.load('DATASETS/X_train_old.npy')
+X_test_old = np.load('DATASETS/X_test_old.npy')
+X_validation_old = np.load('DATASETS/X_validation_old.npy')
+
+y_train_old = np.load('DATASETS/y_train_old.npy')
+y_test_old = np.load('DATASETS/y_test_old.npy')
+y_validation_old = np.load('DATASETS/y_validation_old.npy')
+
+X_train_old = X_train_old[:1500]
+X_test_old = X_test_old[:500]
+X_validation_old = X_validation_old[:500]
+
+y_train_old = y_train_old[:1500]
+y_test_old = y_test_old[:500]
+y_validation_old = y_validation_old[:500]
 
 
 def create_model():
@@ -34,12 +49,12 @@ model = create_model()
 model.fit(X_train, y_train, epochs=5, batch_size=4, validation_data=(X_validation, y_validation))
 
 
-model.summary()
-
 model.save('ANN/prop_model.h5')
 
-prop_model = load_model('ANN/prop_model.h5')
-prop_model.summary()
+model = create_model()
+model.fit(X_train_old, y_train_old, epochs=5, batch_size=4, validation_data=(X_validation_old, y_validation_old))
+model.save('ANN/prop_model_old.h5')
+
 
 #loss, accuracy = model.evaluate(X_test, y_test)
 #print(f'Test Loss: {loss}, Test Accuracy: {accuracy}')

@@ -37,6 +37,8 @@ def calculate_metrics(model_path, X_test):
         X_test_modified = np.delete(X_test, 3, axis=1)
     elif 'feat5' in model_path:
         X_test_modified = np.delete(X_test, 4, axis=1)
+    elif 'feat6' in model_path:
+        X_test_modified = np.delete(X_test, 5, axis=1)
     else:
         raise ValueError("Unknown model path")
     
@@ -50,7 +52,7 @@ def calculate_metrics(model_path, X_test):
 
 # List of model paths
 model_paths = ['ANN/prop_feat1.h5', 'ANN/prop_feat2.h5', 'ANN/prop_feat3.h5', 
-               'ANN/prop_feat4.h5', 'ANN/prop_feat5.h5']
+               'ANN/prop_feat4.h5', 'ANN/prop_feat5.h5', 'ANN/prop_feat6.h5']
 
 # Calculate metrics for each model and print results
 for model_path in model_paths:
