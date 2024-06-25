@@ -32,7 +32,7 @@ def create_model():
     return model
 
 
-for i in range(5):
+for i in range(6):
     X_train_mod = np.delete(X_train, i, axis=1)
     X_test_mod = np.delete(X_test, i, axis=1)
     X_validation_mod = np.delete(X_validation, i, axis=1)

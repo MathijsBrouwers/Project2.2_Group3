@@ -22,3 +22,24 @@ recall = recall_score(y_test, y_pred)
 
 print(precision)
 print(recall)
+
+
+
+X_test_old = np.load('DATASETS/X_test_old.npy')
+y_test_old = np.load('DATASETS/y_test_old.npy')
+
+X_test_old = X_test_old[:500]
+y_test_old = y_test_old[:500]
+
+
+prop_model_old = load_model('ANN\\prop_model_old.h5')
+
+
+y_pred_prob = prop_model_old.predict(X_test)
+y_pred = (y_pred_prob > 0.5).astype(int)
+
+precision_old = precision_score(y_test_old, y_pred)
+recall_old = recall_score(y_test_old, y_pred)
+
+print(precision_old)
+print(recall_old)

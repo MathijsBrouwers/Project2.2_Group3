@@ -8,6 +8,9 @@
 #
 # WARNING: This file does not function as intended when using automatic run buttons such as those present in the top right corner of VSCode. In 
 # order to run it properly consult the top of this comment
+#
+#
+# Processing is done in the following order: Emotion Eval, Stereotypes, PosGen, Emotional Lan, Loaded Lan, Bandwagon Lan
 # ----------------------------------------------------------------------
 
 from pathlib import Path
