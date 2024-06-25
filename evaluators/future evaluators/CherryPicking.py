@@ -155,8 +155,3 @@ class CherryPicking():
         score = self.get_cherry_picking_score(text)
         return score
      
-if __name__ == "__main__":
-    cherry_picker = CherryPicking()
-    file_path = "/Users/juliusverschoof/Documents/GitHub/Project2.2_Group3/DATA/Fake_tweets txt files/8.txt"  # Replace with the path to your text file
-    score = cherry_picker.evaluate(file_path)
-    print(f"Cherry Picking Score: {score}")
