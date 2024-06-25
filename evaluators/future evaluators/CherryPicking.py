@@ -75,20 +75,20 @@ class CherryPicking():
      
       
      def get_cherry_picking_score(self, text):
-        summary = self.callChat(text) 
-        embedding_summary = self.get_embedding(summary)
+        summary = self.callChat(text)  #First we get the summary of our text from openAI API
+        embedding_summary = self.get_embedding(summary) # we get the vector embedding fo that summary 
         #print(embedding_summary)
-        results = self.get_google_search_titles(summary) 
+        results = self.get_google_search_titles(summary) # we do a google search and retreve the url of the top 10 search result 
         
         
         score = 0
         for result in results:
-            a = self.urlToText(result)
-            sum = self.callChat(a)
-            embedding_title = self.get_embedding(sum)
+            a = self.urlToText(result) # we get the text of the document using the webscraping i copied the method from webScrape.py 
+            sum = self.callChat(a) # we summarise the document in one sentce using OPENAI API
+            embedding_title = self.get_embedding(sum) # we also get the embedding of this summary 
            
-            score += (1 - self.cosine_similarity(embedding_summary,embedding_title))
-        return score/10 #divide by the number of titles 
+            score += (1 - self.cosine_similarity(embedding_summary,embedding_title)) # add it to the score, we do 1 - x becuase we want 1 to indicate propaganda to be consistent with other evluators
+        return score/10 #divide by the number of titles to get average 
      
      
 
