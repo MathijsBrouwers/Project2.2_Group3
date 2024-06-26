@@ -1,3 +1,8 @@
+# ----------------------------------------------------------------------
+# This file is for the creation and training of a logitic regression model as well as providing
+# us with its precision and recall.
+# ----------------------------------------------------------------------
+
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import precision_score, recall_score

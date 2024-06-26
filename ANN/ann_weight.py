@@ -1,6 +1,6 @@
 # ----------------------------------------------------------------------
-# This file is for the creation and training of the artificial neural network with slight modification. This one
-# eliminated the 2nd and 3rd feature entirely and saves the resulting ann under a different name. Used by running the file.
+# This file is for the creation and training of several artificial neural networks with slight modifications. Each
+# one removes one of the features entirely, then trains and saves each one as a new network.
 # ----------------------------------------------------------------------
 
 import numpy as np

@@ -1,6 +1,7 @@
 # ----------------------------------------------------------------------
-# This file simply checks the precision and recall of the modified artificial neural network classifier. To use
-# just run the file.
+# This file simply checks the precision and recall of the modified artificial neural network classifiers. 
+# It iterates through all 6 networks and returns the precision, recall and differences in those from the 
+# original network.
 # ----------------------------------------------------------------------
 
 from keras.models import load_model
@@ -64,3 +65,17 @@ for model_path in model_paths:
     print(f"Recall: {recall}")
     print(f"Recall difference: {recall-recall_standard}")
     print()
+
+
+
+prop_model = load_model('ANN\\prop_model.h5')
+
+
+y_pred_prob = prop_model.predict(X_test)
+y_pred = (y_pred_prob > 0.5).astype(int)
+
+precision = precision_score(y_test, y_pred)
+recall = recall_score(y_test, y_pred)
+
+print(precision)
+print(recall)

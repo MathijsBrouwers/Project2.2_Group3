@@ -1,18 +1,23 @@
 # ----------------------------------------------------------------------
-# This file when run will ask to be provided with a text. Upon recieving it the text will be classified by the ann
+# This file is meant to be run by executing the command: "python -m ANN.classify" within the terminal. This 
+# file when run will ask to be provided with a text. Upon recieving it the text will be classified by the ann
 # as propaganda or non-propaganda. To run this file on must put "python -m ANN.classify" into the terminal, then 
 # enter the text you wish to classify when prompted.
 # ----------------------------------------------------------------------
 
 import numpy as np
+
 from evaluators.emotionEval import EmotionEval
-from evaluators.Positive_Generalities_and_stereotypes.stereotypes import Stereotypes
+
+from evaluators.stereotypes import Stereotypes
 from evaluators.Positive_Generalities_and_stereotypes.pos_gen import PosGen
 from evaluators.riskWords.riskWords import RiskWords
 from evaluators.riskWords.constants import EMOTIONAL_LANGUAGE, LOADED_LANGUAGE, BANDWAGON_LANGUAGE
 from evaluators.riskWords.riskWordsLists import emotional_language, loaded_language, bandwagon_language
 
-from .predict import classify
+from keras.models import load_model
+
+
 
 # Create instances of evaluators
 emotionEvaluator = EmotionEval()
@@ -33,6 +38,24 @@ def compile_evaluations(file_path, evaluators):
     print(results)
 
     return np.array(results)
+
+
+def classify():
+
+    input = np.load('feature_vector.npy').reshape(1, -1)
+
+
+    prop_model = load_model('ANN\\prop_model.h5')
+
+
+    y_pred_prob = prop_model.predict(input)
+    y_pred = (y_pred_prob > 0.5).astype(int)
+
+    if(y_pred==1):
+        print("Propaganda")
+    else:
+        print("Non-Propaganda")
+
 
 def process_text(text, evaluators):
     temp_file_path = "temp_text.txt"
